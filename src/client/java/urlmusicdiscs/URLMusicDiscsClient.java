@@ -44,11 +44,11 @@ public class URLMusicDiscsClient implements ClientModInitializer {
 				AudioHandlerClient audioHandler = new AudioHandlerClient();
 
 				if (!audioHandler.checkForAudioFile(fileUrl)) {
-					client.player.sendMessage(Text.literal("Downloading music, please wait a moment..."));
+					client.player.sendMessage(Text.of("Downloading music, please wait a moment..."), false);
 
 					try {
 						audioHandler.downloadVideoAsOgg(fileUrl).thenApply((in) -> {
-							client.player.sendMessage(Text.literal("Downloading complete!"));
+							client.player.sendMessage(Text.of("Downloading complete!"), false);
 
 							FileSound fileSound = new FileSound();
 							fileSound.position = blockPosition;
@@ -61,9 +61,9 @@ public class URLMusicDiscsClient implements ClientModInitializer {
 							return null;
 						});
 					} catch (IOException e) {
-						client.player.sendMessage(Text.literal("Failed to download music!"));
+						client.player.sendMessage(Text.of("Failed to download music!"), false);
 					} catch (InterruptedException e) {
-						client.player.sendMessage(Text.literal("Failed to download music!"));
+						client.player.sendMessage(Text.of("Failed to download music!"), false);
 					}
 					return;
 				}
@@ -91,7 +91,7 @@ public class URLMusicDiscsClient implements ClientModInitializer {
 
 				String currentUrl = itemNbt.getString("music_url");
 
-				client.setScreen(new MusicDiscScreen(Text.translatable("test"), client.player, item, currentUrl != "" ? currentUrl : "URL"));
+				client.setScreen(new MusicDiscScreen(Text.of("test"), client.player, item, currentUrl != "" ? currentUrl : "URL"));
 			});
 		});
 	}

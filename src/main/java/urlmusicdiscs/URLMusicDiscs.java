@@ -68,12 +68,12 @@ public class URLMusicDiscs implements ModInitializer {
 			String urlName = buf.readString();
 
 			if (urlName.length() >= 200) {
-				player.sendMessage(Text.literal("Song URL is too long!"));
+				player.sendMessage(Text.of("Song URL is too long!"), false);
 				return;
 			}
 
 			if (!urlName.startsWith("https://youtu.be") && !urlName.startsWith("https://www.youtube.com") && !urlName.startsWith("https://youtube.com")  && !urlName.startsWith("https://cdn.discordapp.com")) {
-				player.sendMessage(Text.literal("Song URL must be a Youtube or a Discord CDN URL!"));
+				player.sendMessage(Text.of("Song URL must be a Youtube or a Discord CDN URL!"), false);
 				return;
 			}
 

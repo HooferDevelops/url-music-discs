@@ -37,7 +37,7 @@ public class MusicDiscScreen extends Screen {
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
 
-        this.nameField = new TextFieldWidget(textRenderer, x + 62, y + 18, 103, 12, (Text)Text.translatable((String)"container.repair"));
+        this.nameField = new TextFieldWidget(textRenderer, x + 62, y + 18, 103, 12, (Text)Text.of((String)"container.repair"));
         this.nameField.setFocusUnlocked(false);
         this.nameField.setEditableColor(-1);
         this.nameField.setUneditableColor(-1);
