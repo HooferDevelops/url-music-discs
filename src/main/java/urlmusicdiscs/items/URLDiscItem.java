@@ -26,7 +26,7 @@ import urlmusicdiscs.URLMusicDiscs;
 
 public class URLDiscItem extends MusicDiscItem {
     public URLDiscItem(int comparatorOutput, SoundEvent sound, Settings settings, int lengthInSeconds) {
-        super(comparatorOutput, sound, settings, lengthInSeconds);
+        super(comparatorOutput, sound, settings);
     }
 
     @Override
@@ -59,7 +59,6 @@ public class URLDiscItem extends MusicDiscItem {
                 JukeboxBlockEntity jukeboxBlockEntity = (JukeboxBlockEntity)blockEntity;
                 jukeboxBlockEntity.setRecord(itemStack.copy());
                 world.setBlockState(blockPos, blockState.with(JukeboxBlock.HAS_RECORD, true), Block.NOTIFY_LISTENERS);
-                world.emitGameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Emitter.of(playerEntity, blockState));
             }
             itemStack.decrement(1);
             if (playerEntity != null) {
@@ -85,10 +84,5 @@ public class URLDiscItem extends MusicDiscItem {
             }
         }
         return ActionResult.success(world.isClient);
-    }
-
-    @Override
-    public int getSongLengthInTicks() {
-        return 0;
     }
 }
