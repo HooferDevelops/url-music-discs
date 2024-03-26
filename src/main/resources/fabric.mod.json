@@ -1,38 +1,37 @@
 {
 	"schemaVersion": 1,
-	"id": "vinurl",
+	"id": "urlmusicdiscs",
 	"version": "${version}",
-	"name": "VinURL",
+	"name": "URL Music Discs",
 	"description": "Adds a writeable music disc, allowing you to customize the music that plays from any youtube link.",
 	"authors": [
-		"Plompii",
 		"Hoofer"
 	],
 	"contact": {
-		"homepage": "https://plompi.github.io/",
-		"sources": "https://github.com/Plompi/VinURL"
+		"homepage": "https://github.com/HooferDevelops",
+		"sources": "https://github.com/HooferDevelops/url-music-discs"
 	},
-	"license": "CC-BY-NC-4.0",
-	"icon": "assets/vinurl/icon.png",
+	"license": "CC0-1.0",
+	"icon": "assets/urlmusicdiscs/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.vinurl.VinURL"
+			"urlmusicdiscs.URLMusicDiscs"
 		],
 		"client": [
-			"com.vinurl.VinURLClient"
+			"urlmusicdiscs.URLMusicDiscsClient"
 		]
 	},
 	"mixins": [
-		"vinurl.mixins.json",
+		"urlmusicdiscs.mixins.json",
 		{
-			"config": "vinurl.client.mixins.json",
+			"config": "urlmusicdiscs.client.mixins.json",
 			"environment": "client"
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.15.0",
-		"minecraft": ["~1.20.0","~1.20.1","~1.20.2","~1.20.3","~1.20.4"],
+		"fabricloader": ">=0.15.7",
+		"minecraft": "~1.20.4",
 		"java": ">=17",
 		"fabric-api": "*"
 	}
